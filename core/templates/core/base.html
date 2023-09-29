@@ -19,7 +19,7 @@
         <a href="#" class="text-lg font-semibold hover:text-gray-500">Browse</a>
 
         <a
-          href="#"
+          href="{% url 'core:signup' %}"
           class="py-3 px-6 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700"
           >Sign up</a
         >
@@ -49,7 +49,7 @@
 
         <ul class="space-y-2">
             <li><a href="#" class="text-lg text-purple-500 hover:text-teal-600">About</a></li>
-            <li><a href="{% url 'contact' %}" class="text-lg text-purple-500 hover:text-teal-600">Contact</a></li>
+            <li><a href="{% url 'core:contact' %}" class="text-lg text-purple-500 hover:text-teal-600">Contact</a></li>
             <li><a href="#" class="text-lg text-purple-500 hover:text-teal-600">Privacy Policy</a></li>
             <li><a href="#" class="text-lg text-purple-500 hover:text-teal-600">Term of use</a></li>
         </ul>
