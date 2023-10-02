@@ -1,4 +1,5 @@
-{% extends 'core/base.html' %} {% block title %}{{ item.name }}{% endblock %} 
+{% extends 'core/base.html' %} 
+{% block title %}{{ item.name }}{% endblock %} 
 {% block content %}
 <div class="grid grid-cols-5 gap-6">
   <div class="col-span-3">
@@ -17,13 +18,27 @@
       <strong class="text-gray-900">Description:</strong><br />
       {{ item.description }}
     </p>
-    {% endif %}
-
+    {% endif %} {% if request.user == item.created_by %}
+    <div class="mt-6 p-6 bg-white rounded-xl">
+      <p>This is your item!</p>
+      <a
+        href="{% url 'item:edit' item.id %}"
+        class="inline-block mt-3 px-3 py-3 text-lg font-semibold bg-green-500 text-white rounded-xl"
+        >Edit</a
+      >
+      <a
+        href="{% url 'item:delete' item.id %}"
+        class="inline-block mt-3 px-3 py-3 text-lg font-semibold bg-red-500 text-white rounded-xl"
+        >Delete</a
+      >
+    </div>
+    {% else %}
     <a
       href=""
       class="inline-block mt-6 py-4 px-6 text-lg font-semibold bg-green-400 text-white rounded-xl hover:bg-green-700"
       >Contact Seller</a
     >
+    {% endif %}
   </div>
 </div>
 
